@@ -2,9 +2,10 @@
 
 SDL_Renderer* Game::renderer;
 SDL_Event Game::event;
-bool Game::running = true;
 
-Game::Game(const char* title, int x, int y, int w, int h, bool fullscreen)
+Game::Game() { }
+
+void Game::init(const char* title, int x, int y, int w, int h, bool fullscreen)
 {
   SDL_Init(SDL_INIT_EVERYTHING);
   window = SDL_CreateWindow(title, x, y, w, h, fullscreen ? SDL_WINDOW_FULLSCREEN : 0);
@@ -40,3 +41,5 @@ void Game::terminate()
   SDL_DestroyWindow(window);
   SDL_Quit();
 }
+
+Game::~Game() { }

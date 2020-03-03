@@ -4,8 +4,9 @@
 class Game
 {
 public:
-  Game(const char* title, int x, int y, int w, int h, bool fullscreen);
+  Game();
 
+  void init(const char* title, int x, int y, int w, int h, bool fullscreen);
   void handleEvents();
   void update();
   void render();
@@ -13,10 +14,12 @@ public:
 
   ~Game();
 
+  bool isRunning() { return running; }
+
   static SDL_Renderer* renderer;
   static SDL_Event event;
-  static bool running;
 
 private:
   SDL_Window* window;
+  bool running = true;
 };
