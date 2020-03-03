@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# Binary folder
+bin
+
+# Generated Logs
+log
+
+# vscode Settings
+.vscode
