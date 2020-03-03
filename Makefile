@@ -13,6 +13,8 @@ rundl: bin/Linux/debug
 	./bin/Linux/debug
 
 clean:
-	rm bin/Linux/*
-	rm bin/Windows/*
+	rm -R bin/*
 	rm log/*
+
+	mkdir bin/Linux
+	mkdir bin/Windows
