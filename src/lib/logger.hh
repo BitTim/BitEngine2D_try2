@@ -8,8 +8,7 @@ public:
   Logger();
   ~Logger();
 
-  static std::string getTimeFilename();
-  static std::string getTime();
+  static std::string getTime(std::string format);
 
   static void initLogPath();
   static void log(std::string tag, std::string message, bool silent = false);
