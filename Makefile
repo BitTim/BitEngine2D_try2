@@ -1,4 +1,4 @@
-linux_ccfiles = $(shell ls src/Linux/ -I main.cc)
+linux_ccfiles = $(shell ls src/Linux/ -I main.cc | sed 's#^#src/Linux/#')
 
 bin/Linux/test: src/Linux/main.cc $(linux_ccfiles)
 	g++ -o $@ -lSDL2 src/Linux/main.cc $(linux_ccfiles)
