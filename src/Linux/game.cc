@@ -1,5 +1,4 @@
 #include "../lib/game.hh"
-#include "../lib/logger.hh"
 
 SDL_Renderer* Game::renderer;
 SDL_Event Game::event;
