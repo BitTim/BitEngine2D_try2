@@ -1,8 +1,6 @@
 #pragma once
 #include <map>
-
-#include "../game.hh"
-#include "textureManager.hh"
+#include <SDL2/SDL_ttf.h>
 
 class AssetManager
 {
@@ -17,6 +15,10 @@ public:
   //Font Management
   void addFont(std::string id, std::string path, int fontSize);
   TTF_Font* getFont(std::string id);
+
+  //Color Management
+  void addColor(std::string id, Uint8 r, Uint8 g, Uint8 b, Uint8 a);
+  SDL_Color getColor(std::string id);
 
 private:
   std::map<std::string, SDL_Texture*> textures;
