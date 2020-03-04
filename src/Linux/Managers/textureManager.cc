@@ -1,8 +1,8 @@
 #include "../../lib/Managers/textureManager.hh"
 
-SDL_Texture* TextureManager::loadTexture(const char* path)
+SDL_Texture* TextureManager::loadTexture(std::string path)
 {
-  SDL_Surface* surface = IMG_Load(path);
+  SDL_Surface* surface = IMG_Load(path.c_str());
   Logger::log("loadTexture", "Loaded image into surface");
   SDL_Texture* texture = SDL_CreateTextureFromSurface(Game::renderer, surface);
   Logger::log("loadTexture", "Converted Surface to Texture");

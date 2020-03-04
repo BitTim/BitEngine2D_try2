@@ -6,6 +6,6 @@
 
 struct TextureManager
 {
-  static SDL_Texture* loadTexture(const char* path);
+  static SDL_Texture* loadTexture(std::string path);
   static void draw(SDL_Texture* tex, SDL_Rect src, SDL_Rect dst, SDL_RendererFlip flip);
 };
