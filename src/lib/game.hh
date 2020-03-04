@@ -2,6 +2,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include "logger.hh"
+#include "Managers/assetManager.hh"
 
 class Game
 {
@@ -20,6 +21,7 @@ public:
 
   static SDL_Renderer* renderer;
   static SDL_Event event;
+  static AssetManager* assets;
 
 private:
   SDL_Window* window;

@@ -1,7 +1,9 @@
 #include "../lib/game.hh"
+#include "../lib/util.hh"
 
 SDL_Renderer* Game::renderer;
 SDL_Event Game::event;
+AssetManager* Game::assets = new AssetManager();
 
 Game::Game() { }
 
@@ -17,6 +19,9 @@ void Game::init(const char* title, int x, int y, int w, int h, bool fullscreen)
   Logger::log("init", "Creatde Window");
   renderer = SDL_CreateRenderer(window, -1, 0);
   Logger::log("init", "Created Renderer");
+
+  assets->addColor("red", 0xFF, 0x00, 0x00, 0xFF);
+  assets->addColor("blue", 0x00, 0x00, 0xFF, 0xFF);
 }
 
 void Game::handleEvents()
@@ -41,8 +46,12 @@ void Game::render()
   SDL_RenderClear(renderer);
 
   SDL_Rect sample = {10, 10, 150, 150};
-  SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0x00, 0xFF);
+  Util::iSDL_SetRenderDrawColor(assets->getColor("red"));
   SDL_RenderFillRect(renderer, &sample);
+
+  SDL_Rect sample2 = {160, 160, 150, 150};
+  Util::iSDL_SetRenderDrawColor(assets->getColor("blue"));
+  SDL_RenderFillRect(renderer, &sample2);
 
   SDL_RenderPresent(renderer);
 }
